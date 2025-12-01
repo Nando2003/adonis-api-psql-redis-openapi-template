@@ -45,14 +45,8 @@
    NODE_ENV=production
    ```
 
-2. Run build command
+2. Start the container
 
    ```bash
-   $ npm run build
-   ```
-
-3. Start the container
-
-   ```bash
-   $ docker compose up --build --force-recreate -d
+   $ docker compose -f docker-compose.prod.yml up --build
    ```
