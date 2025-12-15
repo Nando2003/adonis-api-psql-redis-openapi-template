@@ -1,3 +1,4 @@
+import { OpenapiOptions } from '#openapi/types'
 import {
   ApiOperation,
   ApiBody,
@@ -7,28 +8,9 @@ import {
   ApiBearerAuth,
 } from '@foadonis/openapi/decorators'
 
-interface ParamConfig {
-  name: string
-  in?: 'path' | 'query'
-  required?: boolean
-  type?: any
-  schema?: any
-  description?: string
-  example?: any
-}
-
-interface ResponseConfig {
-  status: number
-  type?: any
-  schema?: any
-}
-
-export function Openapi(
-  summary: string,
-  optns?: { body?: any; params?: ParamConfig[]; responses?: ResponseConfig[]; secure?: boolean }
-) {
+export function Openapi(optns: OpenapiOptions) {
   return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    ApiOperation({ summary })(target, propertyKey, descriptor)
+    ApiOperation({ summary: optns.summary })(target, propertyKey, descriptor)
 
     if (optns?.secure) {
       ApiBearerAuth()(target, propertyKey)

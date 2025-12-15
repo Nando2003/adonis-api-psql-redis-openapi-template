@@ -31,8 +31,7 @@
     "#tests/*": "./tests/*.js",
     "#config/*": "./config/*.js",
     "#contracts/*": "./contracts/*.js",
-    "#documentation/*": "./documentation/*.js",
-    "#decorators/*": "./app/decorators/*.js"
+    "#openapi/*": "./openapi/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.8.2",
